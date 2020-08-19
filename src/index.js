@@ -1,11 +1,11 @@
 // Import vue component
-import component from "./vue-vais-scroller.vue";
+import component from "./vue-scroller.vue";
 
 // install function executed by Vue.use()
 function install(Vue) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component("VueVaisScroller", component);
+  Vue.component("VueScroller", component);
 }
 
 // Create module definition for Vue.use()

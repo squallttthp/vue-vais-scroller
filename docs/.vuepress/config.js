@@ -10,7 +10,7 @@ module.exports = {
       { text: "v1", link: "/" },
       {
         text: "Code",
-        link: "https://github.com/squallttthp/vue-vais-scroller",
+        link: "https://github.com/squallttthp/vue-scroller",
       },
     ],
   },

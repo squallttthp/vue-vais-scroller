@@ -1,16 +1,16 @@
 {
-  "name": "@vais/vue-vais-scroller",
-  "version": "1.2.9",
-  "description": "",
-  "main": "dist/vue-vais-scroller.ssr.js",
-  "module": "dist/vue-vais-scroller.esm.js",
-  "unpkg": "dist/vue-vais-scroller.min.js",
-  "style": "dist/vue-vais-scroller.css",
+  "name": "@vais/vue-scroller",
+  "version": "1.0.1",
+  "description": "[![npm version](https://img.shields.io/npm/v/@voorhoede/vue-lazy-load)](https://www.npmjs.com/package/@voorhoede/vue-lazy-load)",
+  "main": "dist/vue-scroller.ssr.js",
+  "module": "dist/vue-scroller.esm.js",
+  "unpkg": "dist/vue-scroller.min.js",
+  "style": "dist/vue-scroller.css",
   "licence": "MIT",
   "author": "Nguyen Quang Anh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/squallttthp/vue-vais-scroller"
+    "url": "git+https://github.com/squallttthp/vue-scroller.git"
   },
   "files": [
     "dist/*",
@@ -20,7 +20,7 @@
     "prebuild": "rm -rf dist/",
     "build": "NODE_ENV=production rollup --c rollup.config.js",
     "docs": "run-s docs:*",
-    "docs:api": "vuedoc.md src/vue-vais-scroller.vue --section 'API' --output docs/v1/readme.md --ignore-data --ignore-methods --ignore-computed",
+    "docs:api": "vuedoc.md src/vue-scroller.vue --section 'API' --output docs/v1/readme.md --ignore-data --ignore-methods --ignore-computed",
     "docs:vuepress": "vuepress build docs",
     "predev": "npm run docs:api",
     "dev": "vuepress dev docs --open",
@@ -72,5 +72,21 @@
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "element-ui": "^2.13.2"
+  },
+  "bugs": {
+    "url": "https://github.com/squallttthp/vue-scroller/issues"
+  },
+  "homepage": "https://github.com/squallttthp/vue-scroller#readme",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "vue",
+    "nuxt",
+    "vais",
+    "scroller"
+  ],
+  "license": "ISC"
 }
