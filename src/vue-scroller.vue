@@ -14,6 +14,7 @@
       ></el-button>
     </el-tooltip>
     <el-tooltip
+      v-if="!disableAutoScroll"
       class="item"
       effect="dark"
       content="Tự động cuộn"
@@ -50,11 +51,15 @@ export default {
       type: Boolean,
       default: true,
     },
+    disableAutoScroll: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 .movefast {
   transform: rotate(90deg);
 }

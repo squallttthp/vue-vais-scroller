@@ -15,24 +15,24 @@ const baseConfig = {
   plugins: {
     preVue: [
       replace({
-        "process.env.NODE_ENV": JSON.stringify("production"),
+        "process.env.NODE_ENV": JSON.stringify("production")
       }),
-      commonjs(),
+      commonjs()
     ],
     vue: {
       css: true,
       template: {
-        isProduction: true,
-      },
+        isProduction: true
+      }
     },
     postVue: [
       buble({
         transforms: {
-          dangerousForOf: true,
-        },
-      }),
-    ],
-  },
+          dangerousForOf: true
+        }
+      })
+    ]
+  }
 };
 
 // Customize configs for individual targets
@@ -44,25 +44,25 @@ if (!argv.format || argv.format === "es") {
       file: pkg.module,
       format: "esm",
       exports: "named",
-      sourcemap: true,
+      sourcemap: true
     },
     plugins: [
       ...baseConfig.plugins.preVue,
       css({
-        output: pkg.style,
+        output: pkg.style
       }),
       vue({
         ...baseConfig.plugins.vue,
-        css: false,
+        css: false
       }),
       ...baseConfig.plugins.postVue,
       terser({
         output: {
-          ecma: 6,
-        },
+          ecma: 6
+        }
       }),
-      resolve(),
-    ],
+      resolve()
+    ]
   };
   buildFormats.push(esConfig);
 }
@@ -76,24 +76,24 @@ if (!argv.format || argv.format === "cjs") {
       format: "cjs",
       name: "VueScroller",
       exports: "named",
-      sourcemap: true,
+      sourcemap: true
     },
     plugins: [
       ...baseConfig.plugins.preVue,
       css({
-        output: pkg.style,
+        output: pkg.style
       }),
       vue({
         ...baseConfig.plugins.vue,
         template: {
           ...baseConfig.plugins.vue.template,
-          optimizeSSR: true,
+          optimizeSSR: true
         },
-        css: false,
+        css: false
       }),
       ...baseConfig.plugins.postVue,
-      resolve(),
-    ],
+      resolve()
+    ]
   };
   buildFormats.push(umdConfig);
 }
@@ -107,7 +107,7 @@ if (!argv.format || argv.format === "iife") {
       format: "iife",
       name: "VueScroller",
       exports: "named",
-      sourcemap: true,
+      sourcemap: true
     },
     plugins: [
       ...baseConfig.plugins.preVue,
@@ -115,11 +115,11 @@ if (!argv.format || argv.format === "iife") {
       ...baseConfig.plugins.postVue,
       terser({
         output: {
-          ecma: 5,
-        },
+          ecma: 5
+        }
       }),
-      resolve(),
-    ],
+      resolve()
+    ]
   };
   buildFormats.push(unpkgConfig);
 }
